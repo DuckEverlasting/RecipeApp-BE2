@@ -10,11 +10,22 @@ module.exports = {
       password : 'postgrespass',
       database : 'RecipeApp'
     },
+    migrations: {
+      directory: './data/migrations'
+    },
+    seeds: {
+      directory: './data/seeds'
+    },
   },
 
   testing: {
     client: 'pg',
-    connection:'postgres://localhost/RouteMgmt',
+    connection: {
+      host : 'localhost',
+      user : 'postgres',
+      password : 'postgrespass',
+      database : 'RecipeApp'
+    },
     migrations: {
       directory: './data/migrations'
     },

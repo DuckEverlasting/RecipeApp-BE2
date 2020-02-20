@@ -1,4 +1,4 @@
-const knex = require('../data/knexConfig');
+const knex = require('../knexConfig');
 
 exports.insert = (table, object, returnFields=[]) => {
   return knex(table)

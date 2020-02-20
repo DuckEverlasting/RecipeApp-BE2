@@ -1,6 +1,6 @@
 require('dotenv').config();
 const knex = require('knex');
-const knexConfig = require('./knexfile.js');
+const knexConfig = require('../knexfile.js/index.js');
 
 const APP_ENV = process.env.APP_ENV || 'development';
 
