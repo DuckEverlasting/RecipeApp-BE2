@@ -15,7 +15,6 @@ exports.up = function(knex, Promise) {
     tbl
       .integer('parent_folder')
       .unsigned()
-      .notNullable()
       .references('folders.id')
       .onDelete('CASCADE')
       .onUpdate('CASCADE');
