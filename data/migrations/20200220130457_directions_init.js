@@ -2,7 +2,7 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('directions', tbl => {
     tbl.increments();
     tbl
-      .string('text')
+      .string('text', 255)
       .notNullable();
     tbl
       .integer('recipe')

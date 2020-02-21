@@ -2,7 +2,7 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('recipes', tbl => {
     tbl.increments();
     tbl
-      .string('name')
+      .string('name', 63)
       .notNullable()
       .unique();
     tbl
@@ -13,7 +13,9 @@ exports.up = function(knex, Promise) {
       .onDelete('CASCADE')
       .onUpdate('CASCADE');
     tbl
-      .integer('folder')
+      .string('description', 1023)
+    tbl
+      .integer('parent_folder')
       .unsigned()
       .references('folders.id')
       .onDelete('CASCADE')

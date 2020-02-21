@@ -2,7 +2,7 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('flags', tbl => {
     tbl.increments();
     tbl
-      .string('name')
+      .string('text', 31)
       .notNullable()
       .unique();
   });

@@ -2,7 +2,7 @@ exports.up = function(knex, Promise) {
   return knex.schema.createTable('folders', tbl => {
     tbl.increments();
     tbl
-      .string('name')
+      .string('name', 63)
       .notNullable()
       .unique();
     tbl
@@ -10,6 +10,13 @@ exports.up = function(knex, Promise) {
       .unsigned()
       .notNullable()
       .references('users.id')
+      .onDelete('CASCADE')
+      .onUpdate('CASCADE');
+    tbl
+      .integer('parent_folder')
+      .unsigned()
+      .notNullable()
+      .references('folders.id')
       .onDelete('CASCADE')
       .onUpdate('CASCADE');
     tbl
